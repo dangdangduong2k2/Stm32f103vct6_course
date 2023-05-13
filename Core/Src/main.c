@@ -35,7 +35,6 @@ int main(void)
     //clock ngoai vi
     system_clock_peripheral_init();
     //khai bao timer
-    
     timer2_Init();
     timer1_Init();
     

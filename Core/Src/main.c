@@ -37,7 +37,7 @@ int main(void)
     //khai bao timer
     
     timer2_Init();
-    
+    timer1_Init();
     
 
     

@@ -3,6 +3,7 @@
 #include "gpio.h"
 #include "timer.h"
 #include "IC_74AC165D.h"
+#include "IC_74HC594.h" 
 
 
 uint32_t time20ms = 0;
@@ -28,16 +29,15 @@ int main(void)
  
   //system config:
 
-    //khai bao hal
+    //HAL
     HAL_Init();
-    //clock he thong
+    //system clock
     SystemClock_Config();
-    //clock ngoai vi
+    //system peripheral
     system_clock_peripheral_init();
-    //khai bao timer
-    timer2_Init();
+    //timer init
     timer1_Init();
-    
+    timer2_Init();
 
     
     
@@ -45,9 +45,11 @@ int main(void)
   
     //ic I/O
     ic_74AC165D_init();
+    
+    ic_74HC594_init();
     //I/O init:
     gpio_init(GPIOA,9,0);
-  
+    gpio_init(GPIOA,9,0);
   
   while (1)
   {

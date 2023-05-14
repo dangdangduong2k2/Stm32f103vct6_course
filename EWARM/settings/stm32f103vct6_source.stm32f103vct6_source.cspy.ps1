@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\STM32\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.general.xcl" --backend -f "D:\STM32\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.general.xcl" --backend -f "D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\STM32\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.general.xcl" --debug_file=$debugfile --backend -f "D:\STM32\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.general.xcl" --debug_file=$debugfile --backend -f "D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\settings\stm32f103vct6_source.stm32f103vct6_source.driver.xcl" 
 }

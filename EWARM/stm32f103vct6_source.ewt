@@ -1221,6 +1221,15 @@
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\IC_74AC165D.c</name>
                     </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\IC_74AC165D.h</name>
+                    </file>
+                </group>
+                <group>
+                    <name>IC_74HC594</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Src\IC_74HC594.c</name>
+                    </file>
                 </group>
                 <group>
                     <name>timer</name>

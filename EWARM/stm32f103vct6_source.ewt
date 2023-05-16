@@ -1199,15 +1199,6 @@
             <group>
                 <name>Core</name>
                 <group>
-                    <name>button</name>
-                    <file>
-                        <name>$PROJ_DIR$\..\Core\Src\button.c</name>
-                    </file>
-                    <file>
-                        <name>$PROJ_DIR$\..\Core\Inc\button.h</name>
-                    </file>
-                </group>
-                <group>
                     <name>clock</name>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\clock.c</name>
@@ -1244,12 +1235,30 @@
                     </file>
                 </group>
                 <group>
+                    <name>LCD</name>
+                    <file>
+                        <name>C:\Users\84921\Documents\Zalo Received Files\LCD_Lib.c</name>
+                    </file>
+                    <file>
+                        <name>C:\Users\84921\Documents\Zalo Received Files\LCD_Lib.h</name>
+                    </file>
+                </group>
+                <group>
                     <name>timer</name>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\timer.c</name>
                     </file>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Inc\timer.h</name>
+                    </file>
+                </group>
+                <group>
+                    <name>uart</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Src\uart.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\uart.h</name>
                     </file>
                 </group>
                 <file>

@@ -22,6 +22,7 @@ void system_clock_peripheral_init(void)
     
     RCC->APB1ENR |= (1 << 1); //timer3
   
+    RCC->APB2ENR |= (1 << 14); // uart1
 }
 
 

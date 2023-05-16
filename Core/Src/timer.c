@@ -21,8 +21,8 @@ void timer2_Init(void) //1ms
   TIM2->CCMR2 = 0x6060;    
   TIM2->CCER |= 0x0300;    
   TIM2->CR1 = 0x0081; 
-//  AFIO->MAPR |= (1<<9);
-//  AFIO->MAPR &= ~(1<<8);
+  AFIO->MAPR |= (1<<9);
+  AFIO->MAPR &= ~(1<<8);
   
   TIM2->CCR3 = 50; 
   TIM2->CCR4 = 50; 

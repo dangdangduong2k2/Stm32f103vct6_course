@@ -16,6 +16,8 @@ void system_clock_peripheral_init(void)
     
     RCC->APB2ENR |= (1 << 11); //timer1
     
+    RCC->APB2ENR |= (1 << 0); //AFIO
+    
     RCC->APB1ENR |= (1 << 0); //timer2
     
     RCC->APB1ENR |= (1 << 1); //timer3

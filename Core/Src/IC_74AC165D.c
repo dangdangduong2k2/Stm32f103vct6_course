@@ -11,7 +11,7 @@
 #define DATA_PIN 4
 #define DATA_PORT GPIOB
 
-
+ uint8_t data;
 void ic_74AC165D_init(void)
 {
     gpio_init(CLK_PORT,CLK_PIN,0);//B3 output
@@ -21,7 +21,7 @@ void ic_74AC165D_init(void)
 
 uint8_t shiftIn(void)
 {
-    uint8_t data = 0;
+    data = 0;
     gpio_write(LOAD_PORT, LOAD_PIN,0); 
     gpio_write(LOAD_PORT, LOAD_PIN,1);
     for (int i = 7; i >= 0; i--)

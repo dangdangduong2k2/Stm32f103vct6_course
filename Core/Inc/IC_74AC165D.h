@@ -10,6 +10,8 @@ extern "C" {
 void ic_74AC165D_init(void);
 uint8_t shiftIn(void);
 
+extern uint8_t data;
+
 
 #ifdef __cplusplus
 }

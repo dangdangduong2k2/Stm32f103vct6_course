@@ -1199,6 +1199,15 @@
             <group>
                 <name>Core</name>
                 <group>
+                    <name>button</name>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Src\button.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\button.h</name>
+                    </file>
+                </group>
+                <group>
                     <name>clock</name>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\clock.c</name>
@@ -1229,6 +1238,9 @@
                     <name>IC_74HC594</name>
                     <file>
                         <name>$PROJ_DIR$\..\Core\Src\IC_74HC594.c</name>
+                    </file>
+                    <file>
+                        <name>$PROJ_DIR$\..\Core\Inc\IC_74HC594.h</name>
                     </file>
                 </group>
                 <group>

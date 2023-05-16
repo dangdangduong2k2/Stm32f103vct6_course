@@ -14,16 +14,18 @@ void timer1_Init(void) //1ms
 void timer2_Init(void) //1ms
 {
   GPIOB->CRH |= GPIO_CRH_MODE10_1 | GPIO_CRH_CNF10_1; 
+  GPIOB->CRH |= GPIO_CRH_MODE11_1 | GPIO_CRH_CNF11_1; 
+  
   TIM2->PSC = 71;         
   TIM2->ARR = 999; 
   TIM2->CCMR2 = 0x6060;    
   TIM2->CCER |= 0x0300;    
   TIM2->CR1 = 0x0081; 
-  AFIO->MAPR |= (1<<9);
-  AFIO->MAPR &= ~(1<<8);
+//  AFIO->MAPR |= (1<<9);
+//  AFIO->MAPR &= ~(1<<8);
   
-  TIM2->CCR3 = 900; 
-  TIM2->CCR4 = 900; 
+  TIM2->CCR3 = 50; 
+  TIM2->CCR4 = 50; 
  
 }
 

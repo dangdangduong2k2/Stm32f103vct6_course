@@ -45,17 +45,15 @@ void TIM1_UP_IRQHandler(void)
     {
         count=0;
         giay++;
-        if(59<giay)
+        if(giay>59)
         {
-            giay=0;
-            phut++;
-            if(59<phut)
-            {
-              phut=0;
-              gio++;
-            }
+          giay=0;
+          phut++;
+          if(phut>99)
+          {
+            phut=0;
+          }
         }
-        
         
     }
     else
@@ -70,16 +68,7 @@ void TIM1_UP_IRQHandler(void)
           phut--;
           state2=1;
         }
-        if((data&(1<<6))== 0 && state3==0)
-        {
-          gio++;
-          state3=1;
-        }
-        if((data&(1<<7))== 0 && state4==0)
-        {
-          gio--;
-          state4=1;
-        }
+        
         
         
         if((data&(1<<0))==1 )
@@ -90,22 +79,32 @@ void TIM1_UP_IRQHandler(void)
         {
           state2=0;
         } 
-        if((data&(1<<6))==(1<<6))
+        num=phut*100+giay;
+        if(giay<0)
         {
-          state3=0;
-        } 
-        if((data&(1<<7))==(1<<7))
+          giay=59;
+        }
+        if(giay>59)
         {
-          state4=0;
-        } 
+          giay=0;
+        }
+        if(phut<0)
+        {
+          phut=99;
+        }
+        if(phut>99)
+        {
+          phut=0;
+        }
         
         if(temp_phut==phut && temp_giay==giay)
         {
-          gpio_write(GPIOE,3,0);
+          
+          gpio_write(GPIOE,3,1);
         }
         else
         {
-          gpio_write(GPIOE,3,1);
+          gpio_write(GPIOE,3,0);
         }
         
     }
@@ -127,17 +126,15 @@ void USART1_IRQHandler(void)
         else 
         {
             Uart1.buffer[Uart1.index++] = Uart1.data;
+            
             if (Uart1.index == 1) 
             {  
-                
                 temp_phut=phut;
                 temp_giay=giay;
             }
             if (Uart1.index >= 5) 
             {  
                 Uart1.index = 0;
-                
-                
             }
         }
         int temp0 = Uart1.buffer[0]-'0';
@@ -147,7 +144,8 @@ void USART1_IRQHandler(void)
         
         int temp3 = Uart1.buffer[3]-'0';
         int temp4 = Uart1.buffer[4]-'0';
-        giay = temp3*10+temp4;  
+        giay = temp3*10+temp4; 
+       
         
     } 
     
@@ -200,61 +198,8 @@ while (1)
 {
         shiftIn();
  /////////////////////////////
-        if(gio<10)
-        {
-          CLCD_SetCursor(&LCD1,0,0);
-          CLCD_WriteString(&LCD1,"0");
-          
-          sprintf(lcd_send,"%d",gio);
-          CLCD_SetCursor(&LCD1,1,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        else if(10<=gio)
-        {
-          sprintf(lcd_send,"%d",gio);
-          CLCD_SetCursor(&LCD1,0,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        CLCD_SetCursor(&LCD1,2,0);
-        CLCD_WriteString(&LCD1,":");
-
-        if(phut<10)
-        {
-          CLCD_SetCursor(&LCD1,3,0);
-          CLCD_WriteString(&LCD1,"0");
-          
-          sprintf(lcd_send,"%d",phut);
-          CLCD_SetCursor(&LCD1,4,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        else if(10<=phut)
-        {
-          sprintf(lcd_send,"%d",phut);
-          CLCD_SetCursor(&LCD1,3,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        CLCD_SetCursor(&LCD1,5,0);
-        CLCD_WriteString(&LCD1,":");
-        
-        
-        if(giay<10)
-        {
-          CLCD_SetCursor(&LCD1,6,0);
-          CLCD_WriteString(&LCD1,"0");
-          
-          sprintf(lcd_send,"%d",giay);
-          CLCD_SetCursor(&LCD1,7,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        else if(10<=giay)
-        {
-          sprintf(lcd_send,"%d",giay);
-          CLCD_SetCursor(&LCD1,6,0);
-          CLCD_WriteString(&LCD1,lcd_send);
-        }
-        CLCD_SetCursor(&LCD1,8,0);
-        CLCD_WriteString(&LCD1,"!");
        
+        quetled(num);
 }
   
 }

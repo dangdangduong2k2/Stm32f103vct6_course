@@ -1,4 +1,6 @@
 main.pbi: \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdio.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Core\Inc\uart.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Core\Inc\LCD_Lib.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Core\Inc\IC_74HC594.h \
@@ -16,7 +18,6 @@ main.pbi: \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ysizet.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stddef.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\..\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h \

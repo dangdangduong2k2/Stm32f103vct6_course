@@ -39,4 +39,3 @@ void uart_sendstring(const char* str)
     }
     
 }
-

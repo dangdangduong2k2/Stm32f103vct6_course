@@ -11,7 +11,7 @@
 #define DATA_PIN 4
 #define DATA_PORT GPIOB
 
-uint8_t data;
+ uint8_t data;
 void ic_74AC165D_init(void)
 {
     gpio_init(CLK_PORT,CLK_PIN,0);//B3 output

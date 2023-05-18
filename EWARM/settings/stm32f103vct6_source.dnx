@@ -9,7 +9,7 @@
         <stlinkfoundProbes />
     </StLinkDriver>
     <DebugChecksum>
-        <Checksum>3449205942</Checksum>
+        <Checksum>2304304691</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -27,8 +27,8 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <Disassembly>
-        <MixedMode>1</MixedMode>
         <InstrCount>0</InstrCount>
+        <MixedMode>1</MixedMode>
     </Disassembly>
     <CodeCoverage>
         <Enabled>0</Enabled>
@@ -59,7 +59,7 @@
     <watch_formats>
         <Fmt0>{W}42:button_return	3	0</Fmt0>
         <Fmt1>{W}42:data	1	0</Fmt1>
-        <Fmt2>{W}42:num	4	0</Fmt2>
+        <Fmt2>{W}42:num	3	0</Fmt2>
         <Fmt3>{W}42:time20ms	3	0</Fmt3>
     </watch_formats>
     <Trace2>

@@ -2,9 +2,6 @@
 
 void uart1_init(void)
 {
-    
-  
-
   GPIOA->CRH &= ~(GPIO_CRH_CNF9  | GPIO_CRH_MODE9); // reset PA9
   GPIOA->CRH &= ~(GPIO_CRH_CNF10 | GPIO_CRH_MODE10); // reset PA10
 
@@ -21,4 +18,24 @@ void uart1_init(void)
     // Enable USART1 interrupt in NVIC
   NVIC_EnableIRQ(USART1_IRQn);
   USART1->CR1 |= (USART_CR1_UE); 
+}
+
+
+void uart_sendchar(uint8_t ch)
+{
+   
+    while (!(USART1->SR & USART_SR_TXE));
+
+    USART1->DR = ch;
+}
+
+
+void uart_sendstring(const char* str)
+{
+    while (*str != '\0')
+    {
+        uart_sendchar(*str); 
+        str++; 
+    }
+    
 }

@@ -9,19 +9,19 @@
 #include <stdio.h>
 
 
-
+//timer
 uint32_t time20ms = 0;
+//button, 7seg
 int num=0;
 int state1;
 int state2;
+//LCD
 CLCD_Name LCD1;
 char lcd_send[16];
+//uart
+uart1 Uart1;
 
-char datauart;
-char buffer[6];
-uint8_t index = 0;
-uint8_t state =0;
-
+//timer interrupt
 void TIM1_UP_IRQHandler(void)
 {
 
@@ -34,31 +34,28 @@ void TIM1_UP_IRQHandler(void)
     {
         
     }
-    
     TIM1->SR &= ~(TIM_SR_UIF);
 }
-
+//uart interrupt
 void USART1_IRQHandler(void) 
 {
     if (USART1->SR & USART_SR_RXNE) 
     {
-        datauart = USART1->DR;
-        if (datauart == 0x0A) 
+        Uart1.datauart = USART1->DR;
+        if (Uart1.datauart == 0x0A) //enter
         {    
-            index = 0;
-            
+            Uart1.index = 0;
         } 
         else 
         {
-            buffer[index++] = datauart;
-            if (index >= 5) 
+            Uart1.buffer[Uart1.index++] = Uart1.datauart;
+            if (Uart1.index >= 5) 
             {  
-                index = 0;
+                Uart1.index = 0;
             }
         }
     } 
 }
-
 int main(void)
 {
  
@@ -73,7 +70,7 @@ int main(void)
     //timer init
     timer1_Init();
     timer2_Init();
-  uart1_init();
+    uart1_init();
     
     
   //user config:
@@ -83,6 +80,8 @@ int main(void)
     //led 7 
     ic_74HC594_init();
     //I/O init:
+    
+    //lcd init
     gpio_init(GPIOD,0,0);
     gpio_init(GPIOD,1,0);
     gpio_init(GPIOD,2,0);
@@ -92,7 +91,6 @@ int main(void)
     gpio_init(GPIOD,6,0);
     gpio_init(GPIOD,7,0);
     gpio_write(GPIOD,4,1);
-    //lcd init
     CLCD_4BIT_Init(&LCD1, 16, 2,
                                 GPIOD, GPIO_PIN_7, GPIOD, GPIO_PIN_5,
                                 GPIOD, GPIO_PIN_0, GPIOD, GPIO_PIN_1,
@@ -129,6 +127,7 @@ while (1)
 //        sprintf(lcd_send,"lcd dem :%d",TIM2->CCR3);
 //        CLCD_SetCursor(&LCD1,0,1);
 //        CLCD_WriteString(&LCD1,lcd_send);
+ 
 }
   
 }

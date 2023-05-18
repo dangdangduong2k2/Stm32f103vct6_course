@@ -17,6 +17,11 @@ int state2;
 CLCD_Name LCD1;
 char lcd_send[16];
 
+char datauart;
+char buffer[6];
+uint8_t index = 0;
+uint8_t state =0;
+
 void TIM1_UP_IRQHandler(void)
 {
 
@@ -33,6 +38,26 @@ void TIM1_UP_IRQHandler(void)
     TIM1->SR &= ~(TIM_SR_UIF);
 }
 
+void USART1_IRQHandler(void) 
+{
+    if (USART1->SR & USART_SR_RXNE) 
+    {
+        datauart = USART1->DR;
+        if (datauart == 0x0A) 
+        {    
+            index = 0;
+            
+        } 
+        else 
+        {
+            buffer[index++] = datauart;
+            if (index >= 5) 
+            {  
+                index = 0;
+            }
+        }
+    } 
+}
 
 int main(void)
 {
@@ -48,7 +73,7 @@ int main(void)
     //timer init
     timer1_Init();
     timer2_Init();
-
+  uart1_init();
     
     
   //user config:

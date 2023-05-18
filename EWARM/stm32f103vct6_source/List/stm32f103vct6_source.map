@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.2.214/W32 for ARM                  18/May/2023  13:10:53
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  18/May/2023  13:13:51
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -8,7 +8,7 @@
 #    Map file     =
 #        D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\stm32f103vct6_source\List\stm32f103vct6_source.map
 #    Command line =
-#        -f C:\Users\84921\AppData\Local\Temp\EWFE9B.tmp
+#        -f C:\Users\84921\AppData\Local\Temp\EWB520.tmp
 #        (D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\stm32f103vct6_source\Obj\clock.o
 #        D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\stm32f103vct6_source\Obj\gpio.o
 #        D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM\stm32f103vct6_source\Obj\IC_74AC165D.o

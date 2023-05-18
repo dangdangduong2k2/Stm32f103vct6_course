@@ -6,7 +6,7 @@
 #include "IC_74HC594.h" 
 #include "LCD_Lib.h"
 #include "uart.h"
-
+#include <stdio.h>
 
 //timer
 uint32_t time20ms = 0;

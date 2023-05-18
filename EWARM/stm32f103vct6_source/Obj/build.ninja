@@ -27,7 +27,6 @@ build IC_74HC594.pbi : index IC_74HC594.xcl
 build LCD_Lib.pbi : index LCD_Lib.xcl
 build timer.pbi : index timer.xcl
 build uart.pbi : index uart.xcl
-build main.pbi : index main.xcl
 build system_stm32f1xx.pbi : index system_stm32f1xx.xcl
 build stm32f1xx_hal.pbi : index stm32f1xx_hal.xcl
 build stm32f1xx_hal_cortex.pbi : index stm32f1xx_hal_cortex.xcl
@@ -45,10 +44,10 @@ build stm32f1xx_hal_tim_ex.pbi : index stm32f1xx_hal_tim_ex.xcl
 build stm32f1xx_hal_msp.pbi : index stm32f1xx_hal_msp.xcl
 build stm32f1xx_it.pbi : index stm32f1xx_it.xcl
 build stm32f103vct6_source_part0.pbi : link clock.pbi gpio.pbi IC_74AC165D.pbi IC_74HC594.pbi LCD_Lib.pbi
-build stm32f103vct6_source_part1.pbi : link timer.pbi uart.pbi main.pbi system_stm32f1xx.pbi stm32f1xx_hal.pbi
-build stm32f103vct6_source_part2.pbi : link stm32f1xx_hal_cortex.pbi stm32f1xx_hal_dma.pbi stm32f1xx_hal_exti.pbi stm32f1xx_hal_flash.pbi stm32f1xx_hal_flash_ex.pbi
-build stm32f103vct6_source_part3.pbi : link stm32f1xx_hal_gpio.pbi stm32f1xx_hal_gpio_ex.pbi stm32f1xx_hal_pwr.pbi stm32f1xx_hal_rcc.pbi stm32f1xx_hal_rcc_ex.pbi
-build stm32f103vct6_source_part4.pbi : link stm32f1xx_hal_tim.pbi stm32f1xx_hal_tim_ex.pbi stm32f1xx_hal_msp.pbi stm32f1xx_it.pbi
+build stm32f103vct6_source_part1.pbi : link timer.pbi uart.pbi system_stm32f1xx.pbi stm32f1xx_hal.pbi stm32f1xx_hal_cortex.pbi
+build stm32f103vct6_source_part2.pbi : link stm32f1xx_hal_dma.pbi stm32f1xx_hal_exti.pbi stm32f1xx_hal_flash.pbi stm32f1xx_hal_flash_ex.pbi stm32f1xx_hal_gpio.pbi
+build stm32f103vct6_source_part3.pbi : link stm32f1xx_hal_gpio_ex.pbi stm32f1xx_hal_pwr.pbi stm32f1xx_hal_rcc.pbi stm32f1xx_hal_rcc_ex.pbi stm32f1xx_hal_tim.pbi
+build stm32f103vct6_source_part4.pbi : link stm32f1xx_hal_tim_ex.pbi stm32f1xx_hal_msp.pbi stm32f1xx_it.pbi
 build stm32f103vct6_source.pbd : link stm32f103vct6_source_part0.pbi stm32f103vct6_source_part1.pbi stm32f103vct6_source_part2.pbi stm32f103vct6_source_part3.pbi stm32f103vct6_source_part4.pbi
 build stm32f103vct6_source.pbw : browsedata stm32f103vct6_source.pbd
 

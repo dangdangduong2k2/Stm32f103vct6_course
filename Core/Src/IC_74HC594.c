@@ -61,22 +61,32 @@ void LED74HC594(int positon, int num){
 }
 
 
+
+
+
 void quetled(int num)
 {
-  
-        int tram = num/100;
-        int chuc = (num%100)/10;
-        int dv = (num%100)%10;
+    int unit = num % 10;
+    int ten = (num / 10) % 10;
+    int hundred = (num / 100) % 10;
+    int thousand = (num / 1000) % 10;
+    int tenThousand = (num / 10000) % 10;
       
 	for (int i = 0; i<=2;i++)
-	{
-		LED74HC594(2,tram);		
+	{       
+                LED74HC594(0,tenThousand);		
+		HAL_Delay(1);
+                
+                LED74HC594(1,thousand);		
+		HAL_Delay(1);
+          
+		LED74HC594(2,hundred);		
 		HAL_Delay(1);
 		
-		LED74HC594(3,chuc);
+		LED74HC594(3,ten);
 		HAL_Delay(1);
 
-		LED74HC594(4,dv);
+		LED74HC594(4,unit);
 		HAL_Delay(1);
 	}
 }

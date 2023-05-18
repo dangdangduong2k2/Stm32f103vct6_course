@@ -13,7 +13,7 @@ void uart_sendstring(const char* str);
 
 typedef struct
 {
-    uint8_t datauart;
+    uint8_t data;
     uint8_t index;
     
     uint8_t buffer[5];

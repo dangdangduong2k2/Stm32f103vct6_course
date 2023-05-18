@@ -24,9 +24,40 @@ void timer2_Init(void) //1ms
 //  AFIO->MAPR |= (1<<9);
 //  AFIO->MAPR &= ~(1<<8);
   
-  TIM2->CCR3 = 50; 
-  TIM2->CCR4 = 50; 
+  TIM2->CCR3 = 0; 
+  TIM2->CCR4 = 0; 
  
+}
+void set_pwm(uint8_t channel, uint16_t pwm)
+{
+  if (channel==3)
+  {
+    if(pwm <= 0)
+    {
+      pwm=0;
+      TIM2->CCR3 = pwm;
+    }
+    if(TIM2->ARR <= pwm)
+    {
+      pwm=999;
+      TIM2->CCR3 = pwm;
+    }
+    
+  }
+  if (channel==4)
+  {
+    if(pwm<=0)
+    {
+      pwm=0;
+      TIM2->CCR4 = pwm;
+    }
+    if(TIM2->ARR <= pwm)
+    {
+      pwm=999;
+      TIM2->CCR4 = pwm;
+    }
+    
+  }
 }
 
 

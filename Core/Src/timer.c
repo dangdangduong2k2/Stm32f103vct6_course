@@ -11,13 +11,13 @@ void timer1_Init(void) //1ms
   TIM1->CR1 |= (1 << 0);
 }
 
-void timer2_Init(void) //1ms
+void timer2_Init(void) //10kHz
 {
   GPIOB->CRH |= GPIO_CRH_MODE10_1 | GPIO_CRH_CNF10_1; 
   GPIOB->CRH |= GPIO_CRH_MODE11_1 | GPIO_CRH_CNF11_1; 
   
-  TIM2->PSC = 71;         
-  TIM2->ARR = 999; 
+  TIM2->PSC = 7199;         
+  TIM2->ARR = 99; 
   TIM2->CCMR2 = 0x6060;    
   TIM2->CCER |= 0x0300;    
   TIM2->CR1 = 0x0081; 
@@ -39,10 +39,13 @@ void set_pwm(uint8_t channel, uint16_t pwm)
     }
     if(TIM2->ARR <= pwm)
     {
-      pwm=999;
+      pwm=99;
       TIM2->CCR3 = pwm;
     }
-    
+    else
+    {
+      TIM2->CCR3 = pwm;
+    }
   }
   if (channel==4)
   {
@@ -53,10 +56,29 @@ void set_pwm(uint8_t channel, uint16_t pwm)
     }
     if(TIM2->ARR <= pwm)
     {
-      pwm=999;
+      pwm=99;
       TIM2->CCR4 = pwm;
     }
-    
+    else
+    {
+      TIM2->CCR4 = pwm;
+    }
+  }
+}
+
+uint16_t get_pwm(uint8_t channel)
+{
+  if(channel==3)
+  {
+    return TIM2->CCR3;
+  }
+  if(channel==4)
+  {
+    return TIM2->CCR4;
+  }
+  else
+  {
+    return 0;
   }
 }
 

@@ -7,6 +7,7 @@
 #include "LCD_Lib.h"
 #include "uart.h"
 #include <stdio.h>
+#include <math.h>
 
 
 //timer
@@ -14,6 +15,8 @@ uint32_t time20ms = 0;
 uint32_t count=0;
 int temp_phut;
 int temp_giay;
+int pwm;
+int giatri;
 //button, 7seg
 int num=0;
 int state1;
@@ -40,75 +43,16 @@ char ms[]='ms';
 //timer interrupt
 void TIM1_UP_IRQHandler(void)
 {
-
-    if (++ count == 999)
+    TIM1->SR &= ~(TIM_SR_UIF);
+    if (++ time20ms == 999)
     {
-        count=0;
-        giay++;
-        if(giay>59)
-        {
-          giay=0;
-          phut++;
-          if(phut>99)
-          {
-            phut=0;
-          }
-        }
-        
+        time20ms=0;
     }
     else
     {
-        if((data&(1<<0))== 0 && state1==0)
-        {   
-          phut++;
-          state1=1;
-        }
-        if((data&(1<<5))== 0 && state2==0)
-        {
-          phut--;
-          state2=1;
-        }
-        
-        
-        
-        if((data&(1<<0))==1 )
-        {
-          state1=0;
-        }
-        if((data&(1<<5))==(1<<5))
-        {
-          state2=0;
-        } 
-        num=phut*100+giay;
-        if(giay<0)
-        {
-          giay=59;
-        }
-        if(giay>59)
-        {
-          giay=0;
-        }
-        if(phut<0)
-        {
-          phut=99;
-        }
-        if(phut>99)
-        {
-          phut=0;
-        }
-        
-        if(temp_phut==phut && temp_giay==giay)
-        {
-          
-          gpio_write(GPIOE,3,1);
-        }
-        else
-        {
-          gpio_write(GPIOE,3,0);
-        }
         
     }
-    TIM1->SR &= ~(TIM_SR_UIF);
+    
 }
 //uart interrupt
 void USART1_IRQHandler(void) 
@@ -126,27 +70,37 @@ void USART1_IRQHandler(void)
         else 
         {
             Uart1.buffer[Uart1.index++] = Uart1.data;
-            
-            if (Uart1.index == 1) 
-            {  
-                temp_phut=phut;
-                temp_giay=giay;
-            }
+
             if (Uart1.index >= 5) 
             {  
-                Uart1.index = 0;
+                Uart1.index = 0;        
             }
         }
-        int temp0 = Uart1.buffer[0]-'0';
-        int temp1 = Uart1.buffer[1]-'0';
-        phut=temp0*10+temp1;
+        int temp1= Uart1.buffer[0]-'0';
+        int temp2= Uart1.buffer[1]-'0';
+        int temp3;
+        if(Uart1.buffer[1]==0x0D)
+        {
+          num= temp1;
+          
+        }
+        else if(Uart1.buffer[2]==0x0D)
+        {
+          num= temp1*10+temp2;
+        }
+        else
+        {
+          temp3= Uart1.buffer[2]-'0';
+          num= temp1*100+temp2*10+temp3;
+        }
+        
+
+        num=round(num/10);
+        set_pwm(3,num);
         
         
-        int temp3 = Uart1.buffer[3]-'0';
-        int temp4 = Uart1.buffer[4]-'0';
-        giay = temp3*10+temp4; 
-       
         
+        USART1->SR &= ~USART_SR_RXNE;
     } 
     
 }
@@ -198,8 +152,9 @@ while (1)
 {
         shiftIn();
  /////////////////////////////
-       
-        quetled(num);
+        giatri = get_pwm(3);
+        
+        quetled(giatri);
 }
   
 }

@@ -1,4 +1,5 @@
 #include "uart.h"
+#include <stdio.h>
 
 void uart1_init(void)
 {
@@ -51,4 +52,14 @@ int convert(const char* chuoi) {
         i++;
     }
     return so;
+}
+
+char* revert(int so) {
+    char* chuoi;
+    int chieu_dai = snprintf(NULL, 0, "%d", so); 
+    chuoi = (char*)malloc((chieu_dai + 1) * sizeof(char));  
+    
+    snprintf(chuoi, chieu_dai + 1, "%d", so); 
+    
+    return chuoi;
 }

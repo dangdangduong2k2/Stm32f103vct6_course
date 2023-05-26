@@ -54,13 +54,39 @@ void TIM1_UP_IRQHandler(void)
     }
     
 }
+void TIM3_IRQHandler(void)
+{
+    
+  TIM3->SR &= ~TIM_SR_UIF;
+  if(Uart1.accept==1)
+  {
+      Uart1.timer50ms++;
+  }
+  if(Uart1.timer50ms==50)
+  {
+      Uart1.index = 0;     
+      Uart1.user_buffer[0]=Uart1.buffer[0];
+      Uart1.user_buffer[1]=Uart1.buffer[1];
+      Uart1.user_buffer[2]=Uart1.buffer[2];
+      Uart1.user_buffer[3]=Uart1.buffer[3];
+      Uart1.user_buffer[4]=Uart1.buffer[4];
+
+      Uart1.accept=0;
+      Uart1.timer50ms=0;
+      Uart1.buffer[0]='\0';
+      Uart1.buffer[1]='\0';
+      Uart1.buffer[2]='\0';
+      Uart1.buffer[3]='\0';
+      Uart1.buffer[4]='\0';
+  }
+}
 //uart interrupt
 void USART1_IRQHandler(void) 
 {
     
     //nhan data
     if (USART1->SR & USART_SR_RXNE) 
-    {
+    {   Uart1.accept=1;
         Uart1.data = USART1->DR;
         if (Uart1.data == 0x0A) //enter
         {    
@@ -118,6 +144,7 @@ int main(void)
     //timer init
     timer1_Init();
     timer2_Init();
+    timer3_Init();
     //uart1 init
     uart1_init();
     

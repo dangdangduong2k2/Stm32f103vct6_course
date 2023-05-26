@@ -28,6 +28,16 @@ void timer2_Init(void) //10kHz
   TIM2->CCR4 = 0; 
  
 }
+void timer3_Init(void) //1ms
+{
+  TIM3->CR1 &= ~(1 << 4);
+  TIM3->ARR = 999;
+  TIM3->PSC = 71;
+  TIM3->DIER |= (1 << 0);
+  
+  NVIC->ISER[0] |= (1 << 29);
+  TIM3->CR1 |= (1 << 0);
+}
 void set_pwm(uint8_t channel, uint16_t pwm)
 {
   if (channel==3)

@@ -17,8 +17,10 @@ typedef struct
 {
     uint8_t data;
     uint8_t index;
-    
+    uint8_t accept;
+    uint8_t timer50ms;
     uint8_t buffer[5];
+    uint8_t user_buffer[5];
     
 } uart1;
 

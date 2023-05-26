@@ -36,7 +36,7 @@ int giay=59;
 uart1 Uart1;
 char  buff[2];
 char char_count[7];
-char ms[]='ms';
+char ms[2]="ms";
 
 
 
@@ -70,7 +70,6 @@ void TIM3_IRQHandler(void)
       Uart1.user_buffer[2]=Uart1.buffer[2];
       Uart1.user_buffer[3]=Uart1.buffer[3];
       Uart1.user_buffer[4]=Uart1.buffer[4];
-
       Uart1.accept=0;
       Uart1.timer50ms=0;
       Uart1.buffer[0]='\0';
@@ -86,12 +85,12 @@ void USART1_IRQHandler(void)
     
     //nhan data
     if (USART1->SR & USART_SR_RXNE) 
-    {   Uart1.accept=1;
+    {   
+        Uart1.accept=1;
         Uart1.data = USART1->DR;
         if (Uart1.data == 0x0A) //enter
         {    
-            Uart1.index = 0;
-            
+            Uart1.index = 0;    
         } 
         else 
         {
@@ -102,30 +101,7 @@ void USART1_IRQHandler(void)
                 Uart1.index = 0;        
             }
         }
-        int temp1= Uart1.buffer[0]-'0';
-        int temp2= Uart1.buffer[1]-'0';
-        int temp3;
-        if(Uart1.buffer[1]==0x0D)
-        {
-          num= temp1;
-          
-        }
-        else if(Uart1.buffer[2]==0x0D)
-        {
-          num= temp1*10+temp2;
-        }
-        else
-        {
-          temp3= Uart1.buffer[2]-'0';
-          num= temp1*100+temp2*10+temp3;
-        }
-        
-
-        num=round(num/10);
-        set_pwm(3,num);
-        
-        
-        
+    
         USART1->SR &= ~USART_SR_RXNE;
     } 
     
@@ -178,10 +154,7 @@ int main(void)
 while (1)
 {
         shiftIn();
- /////////////////////////////
-        giatri = get_pwm(3);
-        
-        quetled(giatri);
+     
 }
   
 }

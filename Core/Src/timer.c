@@ -34,7 +34,6 @@ void timer3_Init(void) //1ms
   TIM3->ARR = 999;
   TIM3->PSC = 71;
   TIM3->DIER |= (1 << 0);
-  
   NVIC->ISER[0] |= (1 << 29);
   TIM3->CR1 |= (1 << 0);
 }

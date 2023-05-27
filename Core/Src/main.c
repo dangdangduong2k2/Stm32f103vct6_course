@@ -102,6 +102,7 @@ int main(void)
     uart1_init();
 while (1)
 {
+<<<<<<< Updated upstream
 
 //        shiftIn();
 //        if((data&(1<<0))== 0 && state1==0)
@@ -131,6 +132,11 @@ while (1)
 //        CLCD_SetCursor(&LCD1,0,1);
 //        CLCD_WriteString(&LCD1,lcd_send);
  
+=======
+//        shiftIn();
+  num=convert(Uart1.user_buffer);
+     
+>>>>>>> Stashed changes
 }
   
 }

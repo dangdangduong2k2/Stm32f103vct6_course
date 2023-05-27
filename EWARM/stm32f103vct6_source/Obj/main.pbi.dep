@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 main.pbi: D:\STM32\thuchanhHK2\stm32f103vct6_source\Core\Src\main.c \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc\main.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Drivers/STM32F1xx_HAL_Driver/Inc\stm32f1xx_hal.h \
@@ -8,6 +11,7 @@ main.pbi: D:\STM32\thuchanhHK2\stm32f103vct6_source\Core\Src\main.c \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Drivers/CMSIS/Device/ST/STM32F1xx/Include\stm32f1xx.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Drivers/CMSIS/Include\core_cm3.h \
+<<<<<<< Updated upstream
 =======
 main.pbi: \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
@@ -42,6 +46,8 @@ main.pbi: \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Defaults.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\yvals.h \
 >>>>>>> parent of 5dcdb6f (UP: bt1)
+=======
+>>>>>>> Stashed changes
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdint.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\yvals.h \
@@ -73,4 +79,11 @@ main.pbi: \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc/gpio.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc\IC_74HC594.h \
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc\LCD_Lib.h \
+<<<<<<< Updated upstream
   D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc\uart.h
+=======
+  D:\STM32\thuchanhHK2\stm32f103vct6_source\EWARM/../Core/Inc\uart.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdio.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\math.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_float_setup.h
+>>>>>>> Stashed changes

@@ -9,11 +9,15 @@
         <stlinkResetStrategy>2</stlinkResetStrategy>
     </StLinkDriver>
     <DebugChecksum>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         <Checksum>1539507634</Checksum>
 =======
         <Checksum>1128897244</Checksum>
 >>>>>>> parent of 5dcdb6f (UP: bt1)
+=======
+        <Checksum>764685825</Checksum>
+>>>>>>> Stashed changes
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>

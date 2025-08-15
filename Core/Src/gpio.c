@@ -3,7 +3,7 @@
 
 void gpio_init(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint8_t GPIO_Type)//0 :output,1: input
 {
-    if ( 0 <GPIO_Pin <=7)
+    if ( 0 < GPIO_Pin &&  GPIO_Pin <=7)
     {
         if ( GPIO_Type == 1 )
         {
@@ -23,7 +23,7 @@ void gpio_init(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, uint8_t GPIO_Type)//0 :ou
         }
     }
     
-    if ( 8 <= GPIO_Pin <=15)
+    if ( 8 <= GPIO_Pin && GPIO_Pin <=15)
     {
       
         GPIO_Pin= GPIO_Pin - 8;
